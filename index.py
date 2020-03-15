@@ -12,17 +12,17 @@ def list_images():
 
 def index_collection(images):
     for i in images:
+        print(i)
         response=client.index_faces(
-                CollectionId='faces',
-                DetectionAttributes=[
-                ],
-                ExternalImageId=i[:-4],
-                Image={
-                    'S3Object': {
-                        'Bucket': 'fa-images-lab',
-                        'Name': i
-                    },
-                },
+            CollectionId='faces',
+            DetectionAttributes=[],
+            ExternalImageId=i[:-4],
+            Image={
+                'S3Object': {
+                    'Bucket': 'fa-images-lab',
+                    'Name': i
+                }
+            }
         )
 
 images=list_images()
