@@ -1,7 +1,7 @@
 import boto3
 
 s3 = boto3.resource('s3')
-client = boto3.client('rekognition')
+client = boto3.client('rekognition','us-east-1')
 
 def list_images():
     images = []
@@ -20,7 +20,7 @@ def index_collection(images):
                 Image={
                     'S3Object': {
                         'Bucket': 'fa-images-lab',
-                        'Name': i,
+                        'Name': i
                     },
                 },
         )
