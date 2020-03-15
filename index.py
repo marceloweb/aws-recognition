@@ -1,7 +1,7 @@
 import boto3
 
 s3 = boto3.resource('s3')
-client = boto3.client('rekognition','us-east-1')
+client = boto3.client('rekognition')
 
 def list_images():
     images = []
