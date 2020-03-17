@@ -1,5 +1,16 @@
 # aws-recognition
 
+### Download AWS Cli
+
+### Configure
+```
+$ aws configure
+```
+
+### Sync local images with bucket
+```
+$ aws s3 sync . s3://fa-images-lab
+```
 
 ### Copy images
 ```
