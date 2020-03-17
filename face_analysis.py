@@ -18,5 +18,12 @@ def detect_face():
         )
         return faces_detected
 
-faces_detected=detect_face()
-print(json.dumps(faces_detected, indent=4))
+def list_faces_detected(faces_detected):
+    face_id_detected = []
+    for image in range(len(faces_detected['FaceRecords'])):
+        face_id_detected.append(faces_detected['FaceRecords'][image]['Face']['FaceId'])
+    return face_id_detected
+
+faces_detected = detect_face()
+faces_id_detected = list_faces_detected(faces_detected)
+print(faces_id_detected)
