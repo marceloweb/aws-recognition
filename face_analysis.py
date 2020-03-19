@@ -24,6 +24,18 @@ def list_faces_detected(faces_detected):
         face_id_detected.append(faces_detected['FaceRecords'][image]['Face']['FaceId'])
     return face_id_detected
 
+def compare(faces_detected):
+    result = []
+    for i in faces_detected:
+        result.append(
+            client.search_faces(
+                CollectionId='faces',
+                FaceId=i,
+                FaceMatchThreshold=80,
+                MaxFaces=10
+            )
+        )
+
 faces_detected = detect_face()
 faces_id_detected = list_faces_detected(faces_detected)
 print(faces_id_detected)
