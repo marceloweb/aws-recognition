@@ -35,6 +35,7 @@ def compare(faces_detected):
                 MaxFaces=10
             )
         )
+    return result
 
 faces_detected = detect_face()
 faces_id_detected = list_faces_detected(faces_detected)
