@@ -37,6 +37,14 @@ def compare(faces_detected):
         )
     return result
 
+def generation_json(result_comparation):
+    json = []
+    for face in result_comparation:
+        if(len(face.get('FaceMatches'))) >= 1:
+            profile = dict(name=face['FaceMatches'][0]['Face']['ExternalImageId'],
+                            faceMatch=round(face['FaceMatches'][0]['Similarity'],2))
+            json.append(profile)
+
 faces_detected = detect_face()
 faces_id_detected = list_faces_detected(faces_detected)
 result_comparations = compare(faces_id_detected)
