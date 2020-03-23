@@ -44,8 +44,10 @@ def generation_json(result_comparation):
             profile = dict(name=face['FaceMatches'][0]['Face']['ExternalImageId'],
                             faceMatch=round(face['FaceMatches'][0]['Similarity'],2))
             json.append(profile)
+    return json
 
 faces_detected = detect_face()
 faces_id_detected = list_faces_detected(faces_detected)
 result_comparations = compare(faces_id_detected)
-print(json.dumps(result_comparations, indent=4))
+result_json = generation_json(result_comparations)
+print(json.dumps(result_json, indent=4))
