@@ -46,8 +46,13 @@ def generation_json(result_comparation):
             json.append(profile)
     return json
 
+def data_public(data_json):
+    file = s3.Object('fa-site-lab','dados.json')
+    file.put(Body=json.dumps(data_json))
+
 faces_detected = detect_face()
 faces_id_detected = list_faces_detected(faces_detected)
 result_comparations = compare(faces_id_detected)
 result_json = generation_json(result_comparations)
+data_public(result_json)
 print(json.dumps(result_json, indent=4))
