@@ -1,6 +1,6 @@
 
 $.ajax(
-  { url: 'https://s3.amazonaws.com/fa-site/dados.json',
+  { url: 'https://s3.amazonaws.com/fa-site-lab/dados.json',
    dataType: 'json',
    crossDomain: true,
    success: function (dados) {
@@ -26,7 +26,7 @@ $.ajax(
       tdInfoFoto = document.createElement("img");
       tdInfoFoto.height = 100;
       tdInfoFoto.width = 68;
-      tdInfoFoto.src = 'https://s3.amazonaws.com/fa-imagens/' + dados.nome + '.png';
+      tdInfoFoto.src = 'https://s3.amazonaws.com/fa-images-lab/' + dados.nome + '.png';
      
 
 
